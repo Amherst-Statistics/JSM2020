@@ -9,7 +9,7 @@ Mon, 8/3/2020, 1:00 PM - 2:50 PM	Virtual
 - 1:05 PM	What to Teach (And What Not to Teach) About P-Values 
 Nicole Lazar, University of Georgia
 - 1:30 PM	The Role of Computing at the Core of a Modern Introductory Statistics Course 
-Nicholas Horton, Amherst College ([slides](jse2020-computing.pdf), [R examples](jse2020-computing-mosaic.pdf))
+Nicholas Horton, Amherst College ([slides](https://github.com/Amherst-Statistics/JSM2020/blob/master/jse/jsm2020-computing.pdf), [R examples](https://github.com/Amherst-Statistics/JSM2020/blob/master/jse/jsm2020-computing-mosaic.pdf))
 - 1:55 PM	Multivariate Thinking, Confounding and Causal Inference in Intro Stats 
 Kevin Cummiskey, United States Military Academy
 - 2:20 PM	Discussant: Jeffrey A Witmer, Oberlin College
