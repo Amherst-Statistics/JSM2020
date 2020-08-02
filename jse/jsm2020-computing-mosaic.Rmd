@@ -1,0 +1,164 @@
+---
+title: "Mosaic and the Less Volume, More Creativity Approach"
+author: "Nicholas Horton (nhorton@amherst.edu)"
+date: "August 2, 2020"
+output: 
+  pdf_document:
+    fig_height: 3
+    fig_width: 5
+  html_document:
+    fig_height: 3
+    fig_width: 5
+  word_document:
+    fig_height: 3
+    fig_width: 5
+---
+
+```{r, setup, include=FALSE}
+require(mosaic)   # Load additional packages here 
+knitr::opts_chunk$set(
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 4)
+```
+
+# Introduction
+
+This is an illustrated example of the analyses presented in Nick Horton's JSM 2020 talk "The role of computing at the core of a modern introductory statistics course".  See https://github.com/Amherst-Statistics/jse for slides and https://cran.r-project.org/web/packages/mosaic/vignettes/mosaic-resources.html for more information about resources related to mosaic.
+
+
+## Preliminary code
+```{r}
+library(mosaic)
+library(palmerpenguins)
+
+twoisland <- penguins %>%
+  mutate(island = as.character(island)) %>%
+  filter(island != "Torgersen")
+```
+
+It's puzzling to me that `palmerpenguins` has island as a factor.  This complicates dropping one of the islands so that we can easily demonstrate using a two-sample t-test.  (I would generally hide this code from students in the first few weeks.)
+
+# Means of two groups
+
+### Mosaic code
+
+```{r}
+# this should work in base R, but alas, it doesn't
+mosaic::mean(
+  bill_length_mm ~ island, 
+  na.rm = TRUE, 
+  data = twoisland)
+
+df_stats(
+  bill_length_mm ~ island, 
+  data = twoisland) # mosaic helper function
+```
+
+One command provides a set of summaries (and provides sample size and missing values).
+
+### Equivalent in the tidyverse
+
+```{r message = FALSE}
+twoisland %>%
+  group_by(island) %>%
+  summarize(
+    billmean = mean(
+      bill_length_mm, 
+      na.rm = TRUE), 
+    n = n()
+  )
+```
+
+# Graphical displays
+
+### Mosaic approach (using ggformula)
+
+```{r warning = FALSE}
+gf_boxplot(
+  bill_length_mm ~ island, 
+  data = twoisland)
+```
+
+The ggformula package provides a formula interface to ggplot2 graphics
+
+### Equivalent in the tidyverse
+
+```{r warning = FALSE}
+ggplot(
+  twoisland, 
+  aes(
+    y = bill_length_mm, 
+    x = island)) +
+  geom_boxplot()
+```
+
+While ggplot2 is very powerful, some aspects of the syntax (`aes()` and `+`) do not translate from the equivalent comments for descriptive statistics and modeling.
+
+\clearpage
+
+# Two sample t-test 
+
+### base R
+```{r}
+t.test(
+  bill_length_mm ~ island, 
+  var.equal = TRUE, 
+  data = twoisland)
+```
+
+\clearpage
+
+### another approach in base R
+
+```{r}
+library(infer)
+modttest <- lm(
+  bill_length_mm ~ island, 
+  data = twoisland)
+confint(modttest)
+msummary(modttest)
+
+```
+
+# Multiple regression
+
+The ggformula package can be used to general scatterplots colored by species.  Note that in this usage the same *pipe* operator (`%>%`) is used as in the tidyverse to add the regression lines for each group.
+
+```{r warning = FALSE}
+gf_point(
+  bill_length_mm ~ bill_depth_mm, 
+  color = ~ species, 
+  data = twoisland) %>%
+  gf_lm()
+modmultreg <- lm(
+  bill_length_mm ~ bill_depth_mm + species, 
+  data = twoisland)
+msummary(modmultreg)
+confint(modmultreg)
+```
+
+\clearpage
+
+# Bootstrapping a multiple regression model
+
+
+```{r bootstrap, cache = TRUE}
+set.seed(1619)
+bootstraps <- do(5000) * 
+  lm(
+    bill_length_mm ~ bill_depth_mm + species, 
+    data = resample(twoisland))
+```
+
+```{r}
+qdata(
+  ~ speciesGentoo, 
+  p = c(.025, .975), 
+  data = bootstraps)
+```
+
+
+
+
+
