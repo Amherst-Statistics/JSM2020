@@ -1,4 +1,4 @@
-## Journal of Statistics Education session
+## Journal of Statistics and Data Science Education session
 
 Organized by Nicholas Horton, Amherst College
 
