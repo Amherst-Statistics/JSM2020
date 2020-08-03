@@ -134,8 +134,9 @@ gf_point(
 modmultreg <- lm(
   bill_length_mm ~ bill_depth_mm + species, 
   data = twoisland)
-msummary(modmultreg)
 confint(modmultreg)
+msummary(modmultreg)
+
 ```
 
 \clearpage
