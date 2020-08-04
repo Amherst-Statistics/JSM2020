@@ -2,16 +2,7 @@
 title: "Mosaic and the Less Volume, More Creativity Approach"
 author: "Nicholas Horton (nhorton@amherst.edu)"
 date: "August 2, 2020"
-output: 
-  pdf_document:
-    fig_height: 3
-    fig_width: 5
-  html_document:
-    fig_height: 3
-    fig_width: 5
-  word_document:
-    fig_height: 3
-    fig_width: 5
+output: github_document
 ---
 
 ```{r, setup, include=FALSE}
