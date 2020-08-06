@@ -17,5 +17,6 @@ Amy Wagaman, Amherst College; Nicholas Horton, Amherst College
 - 11:05 AM	Engaging Industry and Academia to Drive Meaningful Social Impact:
 Christine Pfeil, MassMutual; Sears Merritt, MassMutual
 - 11:25 AM	Discussant: Sally Morton, Virginia Tech
+([slides](https://github.com/Amherst-Statistics/JSM2020/blob/master/spaig/SPAIG-Morton.pdf))
 - 11:45 AM	Floor Discussion
 
