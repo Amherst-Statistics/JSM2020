@@ -15,7 +15,9 @@ Zoe Moodie, Fred Hutchinson Cancer Research Center; Peter Gilbert, Fred Hutchins
 Amy Wagaman, Amherst College; Nicholas Horton, Amherst College
 ([slides](https://github.com/Amherst-Statistics/JSM2020/blob/master/spaig/jsm2020-spaig.pdf) and link to [DSC-WAV](https://dsc-wav.github.io/www/))
 - 11:05 AM	Engaging Industry and Academia to Drive Meaningful Social Impact:
-Christine Pfeil, MassMutual; Sears Merritt, MassMutual ([video](https://www.youtube.com/watch?v=aHhMijte7vo&feature=youtu.be))
+Christine Pfeil, MassMutual; Sears Merritt, MassMutual 
+([slides](https://github.com/Amherst-Statistics/JSM2020/blob/master/spaig/JSM_MassMutual.pdf) and
+[video](https://www.youtube.com/watch?v=aHhMijte7vo&feature=youtu.be))
 - 11:25 AM	Discussant: Sally Morton, Virginia Tech
 ([slides](https://github.com/Amherst-Statistics/JSM2020/blob/master/spaig/SPAIG-Morton.pdf))
 - 11:45 AM	Floor Discussion
